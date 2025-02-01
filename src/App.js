@@ -24,6 +24,14 @@ function App() {
     setCurrentWord(word);
     setUserInput(new Array(word.romaji.length).fill(''));
     setIsCorrect(null);
+
+    // Focus the first input after a brief delay to ensure the DOM has updated
+    setTimeout(() => {
+      const firstInput = document.querySelector('input[type="text"]');
+      if (firstInput) {
+        firstInput.focus();
+      }
+    }, 10);
   };
 
   const handleInputChange = (index, value) => {
@@ -64,8 +72,7 @@ function App() {
             <input
               key={index}
               type="text"
-              autoFocus={index === 0}
-              maxLength={2}
+              maxLength={3}
               value={userInput[index]}
               onChange={(e) => handleInputChange(index, e.target.value)}
               className={
