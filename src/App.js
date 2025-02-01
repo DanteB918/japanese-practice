@@ -78,7 +78,7 @@ function App() {
             <input
               key={index}
               type="text"
-              maxLength={3}
+              maxLength={currentWord.romaji[index].length}
               value={userInput[index]}
               onChange={(e) => handleInputChange(index, e.target.value)}
               className={
