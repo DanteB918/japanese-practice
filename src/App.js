@@ -55,6 +55,12 @@ function App() {
     if (newInput.every(input => input !== '')) {
       const correct = newInput.every((input, i) => input === currentWord.romaji[i]);
       setIsCorrect(correct);
+
+      if (correct) {
+        setTimeout(() => {
+          getNewWord();
+        }, 1000);
+      }
     }
   };
 
