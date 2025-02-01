@@ -32,11 +32,21 @@ function App() {
 
     setUserInput(newInput);
 
+    // Check if the current input matches the expected romaji
+    if (value.toLowerCase() === currentWord.romaji[index]) {
+      // Focus the next input if it exists
+      setTimeout(() => {
+        const inputs = document.querySelectorAll('input[type="text"]');
+        if (index < inputs.length - 1) {
+          inputs[index + 1].focus();
+        }
+      }, 10);
+    }
+
     // Check if the input is correct when all fields are filled
     if (newInput.every(input => input !== '')) {
       const correct = newInput.every((input, i) => input === currentWord.romaji[i]);
       setIsCorrect(correct);
-    //   newInput[index + 1].focus();
     }
   };
 
