@@ -1,25 +1,22 @@
 import React, { useState, useEffect } from 'react';
-
-// Sample Japanese words (we can expand this list later)
-const japaneseWords = [
-  { word: 'かたかな', romaji: ['ka', 'ta', 'ka', 'na'] },
-  { word: 'ひらがな', romaji: ['hi', 'ra', 'ga', 'na'] },
-  { word: 'やまと', romaji: ['ya', 'ma', 'to'] },
-  { word: 'とうきょう', romaji: ['to', 'u', 'kyo', 'u'] },
-];
+import { useParams, Link } from 'react-router-dom';
+import { hiraganaWords, katakanaWords } from '../data/words';
 
 function ReadingPractice() {
+  const { system } = useParams();
   const [currentWord, setCurrentWord] = useState(null);
   const [userInput, setUserInput] = useState([]);
   const [isCorrect, setIsCorrect] = useState(null);
 
+  const wordList = system === 'hiragana' ? hiraganaWords : katakanaWords;
+
   useEffect(() => {
     getNewWord();
-  }, []);
+  }, [system]); // Reset when writing system changes
 
   const getNewWord = () => {
-    const randomIndex = Math.floor(Math.random() * japaneseWords.length);
-    const word = japaneseWords[randomIndex];
+    const randomIndex = Math.floor(Math.random() * wordList.length);
+    const word = wordList[randomIndex];
     setCurrentWord(word);
     setUserInput(new Array(word.romaji.length).fill(''));
     setIsCorrect(null);
@@ -68,7 +65,10 @@ function ReadingPractice() {
   return (
     <div className="reading-practice">
       <div className="container">
-        <h1>Japanese Word Practice</h1>
+        <div className="header">
+          {/* <Link to="/reading-practice" className="back-button">← Back to Selection</Link> */}
+          <h1>{system === 'hiragana' ? 'Hiragana' : 'Katakana'} Practice</h1>
+        </div>
         <div className="word-display">
           <h2>{currentWord.word}</h2>
         </div>
