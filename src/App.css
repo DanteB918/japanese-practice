@@ -289,6 +289,19 @@ button:hover {
   max-width: 600px;
 }
 
+@media (max-width: 768px) {
+  .options-container {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .options-container button {
+    min-height: 60px;
+    font-size: 1.1rem;
+    padding: 0.8rem;
+  }
+}
+
 .options-container button {
   padding: 1rem;
   font-size: 1.2rem;
