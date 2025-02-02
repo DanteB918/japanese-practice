@@ -40,6 +40,7 @@ function MeaningPractice() {
   const [options, setOptions] = useState([]);
   const [isCorrect, setIsCorrect] = useState(null);
   const [showingAnswers, setShowingAnswers] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const getSystemTitle = () => {
     switch (system) {
@@ -68,11 +69,13 @@ function MeaningPractice() {
     setOptions(generateOptions(item));
     setIsCorrect(null);
     setShowingAnswers(false);
+    setSelectedOption(null);
   }, [system]);
 
   const handleOptionClick = (selectedOption) => {
     if (showingAnswers) return;
     
+    setSelectedOption(selectedOption);
     const correct = selectedOption === currentItem.meaning;
     setIsCorrect(correct);
     setShowingAnswers(true);
@@ -84,11 +87,13 @@ function MeaningPractice() {
       setOptions(generateOptions(item));
       setIsCorrect(null);
       setShowingAnswers(false);
+      setSelectedOption(null);
     }, 1500);
   };
 
   const getNewWord = () => {
     setShowingAnswers(true);
+    setSelectedOption(currentItem.meaning); // Show the correct answer when skipping
     
     setTimeout(() => {
       const meaningList = getMeaningList();
@@ -97,7 +102,22 @@ function MeaningPractice() {
       setOptions(generateOptions(item));
       setIsCorrect(null);
       setShowingAnswers(false);
+      setSelectedOption(null);
     }, 1500);
+  };
+
+  const getButtonClass = (option) => {
+    if (!showingAnswers) return '';
+    
+    // Always show the correct answer in green
+    if (option === currentItem.meaning) {
+      return 'correct';
+    }
+    // Show the wrong selected option in red
+    if (option === selectedOption && !isCorrect) {
+      return 'incorrect';
+    }
+    return '';
   };
 
   return (
@@ -115,13 +135,7 @@ function MeaningPractice() {
               key={index}
               onClick={() => handleOptionClick(option)}
               disabled={showingAnswers}
-              className={
-                showingAnswers
-                  ? option === currentItem.meaning
-                    ? 'correct'
-                    : 'incorrect'
-                  : ''
-              }
+              className={getButtonClass(option)}
             >
               {option}
             </button>
