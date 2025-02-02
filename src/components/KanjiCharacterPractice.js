@@ -2,30 +2,40 @@ import React, { useState, useEffect } from 'react';
 import { kanjiCharacters } from '../data/words';
 
 function KanjiCharacterPractice() {
-  const [currentKanji, setCurrentKanji] = useState(null);
-  const [onyomiInput, setOnyomiInput] = useState([]);
-  const [kunyomiInput, setKunyomiInput] = useState([]);
-  const [isCorrect, setIsCorrect] = useState({ onyomi: null, kunyomi: null });
 
-  useEffect(() => {
-    getNewKanji();
-  }, []);
+  const getRandomKanji = () => {
+    const randomIndex = Math.floor(Math.random() * kanjiCharacters.length);
+    return kanjiCharacters[randomIndex];
+  };
+
+  const initialKanji = getRandomKanji();
+  const [currentKanji, setCurrentKanji] = useState(initialKanji);
+  const [onyomiInput, setOnyomiInput] = useState(new Array(initialKanji.onyomi.length).fill(''));
+  const [kunyomiInput, setKunyomiInput] = useState(new Array(initialKanji.kunyomi.length).fill(''));
+  const [isCorrect, setIsCorrect] = useState({ onyomi: null, kunyomi: null });
+  const [showingAnswers, setShowingAnswers] = useState(false);
 
   const getNewKanji = () => {
-    const randomIndex = Math.floor(Math.random() * kanjiCharacters.length);
-    const kanji = kanjiCharacters[randomIndex];
-    setCurrentKanji(kanji);
-    setOnyomiInput(new Array(kanji.onyomi.length).fill(''));
-    setKunyomiInput(new Array(kanji.kunyomi.length).fill(''));
-    setIsCorrect({ onyomi: null, kunyomi: null });
 
-    // Focus first Onyomi input
+    setShowingAnswers(true);
+
     setTimeout(() => {
-      const firstInput = document.querySelector('.onyomi-inputs input');
-      if (firstInput) {
-        firstInput.focus();
-      }
-    }, 10);
+      setShowingAnswers(false);
+      const kanji = getRandomKanji();
+      setCurrentKanji(kanji);
+      setOnyomiInput(new Array(kanji.onyomi.length).fill(''));
+      setKunyomiInput(new Array(kanji.kunyomi.length).fill(''));
+      setIsCorrect({ onyomi: null, kunyomi: null });
+
+
+      setTimeout(() => {
+        const firstInput = document.querySelector('.onyomi-inputs input');
+
+        if (firstInput) {
+          firstInput.focus();
+        }
+      }, 10);
+    }, 1500);
   };
 
   const handleInputChange = (type, index, value) => {
@@ -112,8 +122,6 @@ function KanjiCharacterPractice() {
     }
   }, [allCorrect]);
 
-  if (!currentKanji) return <div>Loading...</div>;
-
   return (
     <div className="reading-practice">
       <div className="container">
@@ -133,9 +141,11 @@ function KanjiCharacterPractice() {
                   key={`onyomi-${index}`}
                   type="text"
                   maxLength={currentKanji.onyomi[index].length}
-                  value={onyomiInput[index]}
+                  value={showingAnswers ? reading : onyomiInput[index]}
                   onChange={(e) => handleInputChange('onyomi', index, e.target.value)}
+                  disabled={showingAnswers}
                   className={
+                    showingAnswers ? 'correct' :
                     onyomiInput[index]
                       ? isValidReading(onyomiInput[index], index, currentKanji.onyomi, onyomiInput)
                         ? 'correct'
@@ -154,9 +164,11 @@ function KanjiCharacterPractice() {
                   key={`kunyomi-${index}`}
                   type="text"
                   maxLength={currentKanji.kunyomi[index].length}
-                  value={kunyomiInput[index]}
+                  value={showingAnswers ? reading : kunyomiInput[index]}
                   onChange={(e) => handleInputChange('kunyomi', index, e.target.value)}
+                  disabled={showingAnswers}
                   className={
+                    showingAnswers ? 'correct' :
                     kunyomiInput[index]
                       ? isValidReading(kunyomiInput[index], index, currentKanji.kunyomi, kunyomiInput)
                         ? 'correct'
@@ -173,7 +185,7 @@ function KanjiCharacterPractice() {
             {allCorrect ? 'Perfect! All readings correct!' : 'Keep trying!'}
           </div>
         )}
-        <button onClick={getNewKanji}>New Kanji</button>
+        <button onClick={getNewKanji} disabled={showingAnswers}>New Kanji</button>
       </div>
     </div>
   );

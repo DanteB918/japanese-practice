@@ -4,10 +4,6 @@ import { hiraganaWords, katakanaWords, kanjiWords } from '../data/words';
 
 function ReadingPractice() {
   const { system } = useParams();
-  const [currentWord, setCurrentWord] = useState(null);
-  const [userInput, setUserInput] = useState([]);
-  const [isCorrect, setIsCorrect] = useState(null);
-
   const getWordList = () => {
     switch (system) {
       case 'hiragana':
@@ -20,6 +16,20 @@ function ReadingPractice() {
         return hiraganaWords;
     }
   };
+
+  const getRandomWord = (wordList) => {
+    const randomIndex = Math.floor(Math.random() * wordList.length);
+    const word = wordList[randomIndex];
+
+    return word;
+  };
+
+  const initialWordList = getWordList();
+  const initialWord = getRandomWord(initialWordList);
+  const [currentWord, setCurrentWord] = useState(initialWord);
+  const [userInput, setUserInput] = useState(new Array(initialWord.romaji.length).fill(''));
+  const [isCorrect, setIsCorrect] = useState(null);
+  const [showingAnswers, setShowingAnswers] = useState(false);
 
   const getSystemTitle = () => {
     switch (system) {
@@ -34,26 +44,34 @@ function ReadingPractice() {
     }
   };
 
-  const wordList = getWordList();
-
   useEffect(() => {
-    getNewWord();
-  }, [system]); // Reset when writing system changes
 
-  const getNewWord = () => {
-    const randomIndex = Math.floor(Math.random() * wordList.length);
-    const word = wordList[randomIndex];
+    const wordList = getWordList();
+    const word = getRandomWord(wordList);
     setCurrentWord(word);
     setUserInput(new Array(word.romaji.length).fill(''));
     setIsCorrect(null);
+    setShowingAnswers(false);
+  }, [system]);
 
-    // Focus the first input after a brief delay to ensure the DOM has updated
+  const getNewWord = () => {
+    setShowingAnswers(true);
+
     setTimeout(() => {
-      const firstInput = document.querySelector('input[type="text"]');
-      if (firstInput) {
-        firstInput.focus();
-      }
-    }, 10);
+      setShowingAnswers(false);
+      const wordList = getWordList();
+      const word = getRandomWord(wordList);
+      setCurrentWord(word);
+      setUserInput(new Array(word.romaji.length).fill(''));
+      setIsCorrect(null);
+
+      setTimeout(() => {
+        const firstInput = document.querySelector('input[type="text"]');
+        if (firstInput) {
+          firstInput.focus();
+        }
+      }, 10);
+    }, 1500);
   };
 
   const handleInputChange = (index, value) => {
@@ -62,9 +80,7 @@ function ReadingPractice() {
 
     setUserInput(newInput);
 
-    // Check if the current input matches the expected romaji
     if (value.toLowerCase() === currentWord.romaji[index]) {
-      // Focus the next input if it exists
       setTimeout(() => {
         const inputs = document.querySelectorAll('input[type="text"]');
         if (index < inputs.length - 1) {
@@ -73,7 +89,6 @@ function ReadingPractice() {
       }, 10);
     }
 
-    // Check if the input is correct when all fields are filled
     if (newInput.every(input => input !== '')) {
       const correct = newInput.every((input, i) => input === currentWord.romaji[i]);
       setIsCorrect(correct);
@@ -85,8 +100,6 @@ function ReadingPractice() {
       }
     }
   };
-
-  if (!currentWord) return <div>Loading...</div>;
 
   return (
     <div className="reading-practice">
@@ -106,9 +119,11 @@ function ReadingPractice() {
               key={index}
               type="text"
               maxLength={currentWord.romaji[index].length}
-              value={userInput[index]}
+              value={showingAnswers ? char : userInput[index]}
               onChange={(e) => handleInputChange(index, e.target.value)}
+              disabled={showingAnswers}
               className={
+                showingAnswers ? 'correct' :
                 userInput[index] && (
                   userInput[index] === currentWord.romaji[index]
                     ? 'correct'
@@ -123,7 +138,7 @@ function ReadingPractice() {
             {isCorrect ? 'Correct!' : 'Try again!'}
           </div>
         )}
-        <button onClick={getNewWord}>New Word</button>
+        <button onClick={getNewWord} disabled={showingAnswers}>New Word</button>
       </div>
     </div>
   );

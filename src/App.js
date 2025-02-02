@@ -25,10 +25,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/reading-practice" element={<ReadingSelection />} />
-          <Route path="/reading-practice/hiragana" element={<ReadingPractice />} />
-          <Route path="/reading-practice/katakana" element={<ReadingPractice />} />
-          <Route path="/reading-practice/kanji-words" element={<ReadingPractice />} />
           <Route path="/reading-practice/kanji-chars" element={<KanjiCharacterPractice />} />
+          <Route path="/reading-practice/:system" element={<ReadingPractice />} />
         </Routes>
       </div>
     </Router>
