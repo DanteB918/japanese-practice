@@ -43,10 +43,43 @@ function KanjiCharacterPractice() {
     }
   };
 
+  const areArraysEqual = (arr1, arr2) => {
+    if (arr1.length !== arr2.length) return false;
+    const sorted1 = [...arr1].sort();
+    const sorted2 = [...arr2].sort();
+    return sorted1.every((val, idx) => val === sorted2[idx]);
+  };
+
+  const hasDuplicates = (arr) => {
+    const nonEmptyValues = arr.filter(val => val !== '');
+    return new Set(nonEmptyValues).size !== nonEmptyValues.length;
+  };
+
+  const isValidReading = (input, index, readings, allInputs) => {
+    if (!input) return true; // Empty input is valid
+
+    // Get all other inputs except the current one
+    const otherInputs = allInputs.filter((_, i) => i !== index).filter(val => val !== '');
+
+    // Check if this reading is already used
+    if (otherInputs.includes(input)) return false;
+
+    // Check if this reading is valid
+    return readings.includes(input);
+  };
+
   const checkOnyomi = (input) => {
     if (input.every(val => val !== '')) {
-      const correct = input.every((val, i) => 
-        val === currentKanji.onyomi[i]
+      // Check for duplicates first
+      if (hasDuplicates(input)) {
+        setIsCorrect(prev => ({ ...prev, onyomi: false }));
+        return;
+      }
+      
+      // Check if all inputs match the expected readings in any order
+      const correct = areArraysEqual(
+        input,
+        currentKanji.onyomi
       );
       setIsCorrect(prev => ({ ...prev, onyomi: correct }));
     }
@@ -54,8 +87,16 @@ function KanjiCharacterPractice() {
 
   const checkKunyomi = (input) => {
     if (input.every(val => val !== '')) {
-      const correct = input.every((val, i) => 
-        val === currentKanji.kunyomi[i]
+      // Check for duplicates first
+      if (hasDuplicates(input)) {
+        setIsCorrect(prev => ({ ...prev, kunyomi: false }));
+        return;
+      }
+
+      // Check if all inputs match the expected readings in any order
+      const correct = areArraysEqual(
+        input,
+        currentKanji.kunyomi
       );
       setIsCorrect(prev => ({ ...prev, kunyomi: correct }));
     }
@@ -95,11 +136,11 @@ function KanjiCharacterPractice() {
                   value={onyomiInput[index]}
                   onChange={(e) => handleInputChange('onyomi', index, e.target.value)}
                   className={
-                    onyomiInput[index] && (
-                      onyomiInput[index] === currentKanji.onyomi[index]
+                    onyomiInput[index]
+                      ? isValidReading(onyomiInput[index], index, currentKanji.onyomi, onyomiInput)
                         ? 'correct'
                         : 'incorrect'
-                    )
+                      : ''
                   }
                 />
               ))}
@@ -112,14 +153,15 @@ function KanjiCharacterPractice() {
                 <input
                   key={`kunyomi-${index}`}
                   type="text"
+                  maxLength={currentKanji.kunyomi[index].length}
                   value={kunyomiInput[index]}
                   onChange={(e) => handleInputChange('kunyomi', index, e.target.value)}
                   className={
-                    kunyomiInput[index] && (
-                      kunyomiInput[index] === currentKanji.kunyomi[index]
+                    kunyomiInput[index]
+                      ? isValidReading(kunyomiInput[index], index, currentKanji.kunyomi, kunyomiInput)
                         ? 'correct'
                         : 'incorrect'
-                    )
+                      : ''
                   }
                 />
               ))}
