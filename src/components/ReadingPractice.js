@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { hiraganaWords, katakanaWords, kanjiWords } from '../data/words';
+import { hiraganaWords, katakanaWords, kanjiWords } from '../data/reading';
 
 function ReadingPractice() {
   const { system } = useParams();

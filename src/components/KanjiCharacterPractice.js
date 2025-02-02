@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { kanjiCharacters } from '../data/words';
+import { kanjiCharacters } from '../data/reading';
 
 function KanjiCharacterPractice() {
 
