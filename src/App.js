@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ReadingPractice from './components/ReadingPractice';
 import ReadingSelection from './components/ReadingSelection';
 import KanjiCharacterPractice from './components/KanjiCharacterPractice';
