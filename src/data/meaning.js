@@ -1,311 +1,127 @@
+// All N5 level vocabulary
 export const hiraganaMeanings = [
-  {
-    word: 'ひらがな',
-    meaning: 'Hiragana',
-    distractors: ['Katakana', 'Kanji', 'Romaji']
-  },
-  {
-    word: 'やまと',
-    meaning: 'Ancient Japan',
-    distractors: ['Mountain', 'Ocean', 'Village']
-  },
-  {
-    word: 'とうきょう',
-    meaning: 'Tokyo',
-    distractors: ['Kyoto', 'Osaka', 'Hokkaido']
-  },
-  {
-    word: 'たべます',
-    meaning: 'To eat',
-    distractors: ['To drink', 'To sleep', 'To walk']
-  },
-  {
-    word: 'のみます',
-    meaning: 'To drink',
-    distractors: ['To eat', 'To run', 'To study']
-  },
-  {
-    word: 'あさごはん',
-    meaning: 'Breakfast',
-    distractors: ['Lunch', 'Dinner', 'Snack']
-  },
-  {
-    word: 'おちゃ',
-    meaning: 'Tea',
-    distractors: ['Coffee', 'Water', 'Juice']
-  },
-  {
-    word: 'いぬ',
-    meaning: 'Dog',
-    distractors: ['Cat', 'Bird', 'Fish']
-  },
-  {
-    word: 'ねこ',
-    meaning: 'Cat',
-    distractors: ['Dog', 'Rabbit', 'Mouse']
-  },
-  {
-    word: 'さくら',
-    meaning: 'Cherry blossom',
-    distractors: ['Rose', 'Tulip', 'Lily']
-  },
-  {
-    word: 'せんせい',
-    meaning: 'Teacher',
-    distractors: ['Student', 'Doctor', 'Parent']
-  },
-  {
-    word: 'がっこう',
-    meaning: 'School',
-    distractors: ['Hospital', 'Library', 'Park']
-  },
-  {
-    word: 'でんわ',
-    meaning: 'Telephone',
-    distractors: ['Computer', 'Television', 'Radio']
-  },
-  {
-    word: 'かばん',
-    meaning: 'Bag',
-    distractors: ['Book', 'Pencil', 'Desk']
-  },
-  {
-    word: 'ほん',
-    meaning: 'Book',
-    distractors: ['Magazine', 'Newspaper', 'Letter']
-  }
+  { word: 'あう', meaning: 'To meet', distractors: ['To see', 'To go', 'To talk'] },
+  { word: 'あさ', meaning: 'Morning', distractors: ['Night', 'Afternoon', 'Evening'] },
+  { word: 'あした', meaning: 'Tomorrow', distractors: ['Yesterday', 'Today', 'Tonight'] },
+  { word: 'あめ', meaning: 'Rain', distractors: ['Snow', 'Cloud', 'Wind'] },
+  { word: 'いく', meaning: 'To go', distractors: ['To come', 'To return', 'To leave'] },
+  { word: 'いま', meaning: 'Now', distractors: ['Later', 'Soon', 'Yesterday'] },
+  { word: 'いぬ', meaning: 'Dog', distractors: ['Cat', 'Fox', 'Wolf'] },
+  { word: 'うみ', meaning: 'Sea', distractors: ['River', 'Lake', 'Pond'] },
+  { word: 'えき', meaning: 'Station', distractors: ['Airport', 'Bus stop', 'Harbor'] },
+  { word: 'おかね', meaning: 'Money', distractors: ['Gold', 'Silver', 'Debt'] },
+  { word: 'おちゃ', meaning: 'Tea', distractors: ['Coffee', 'Juice', 'Water'] },
+  { word: 'おとうさん', meaning: 'Father', distractors: ['Mother', 'Brother', 'Grandfather'] },
+  { word: 'おなじ', meaning: 'Same', distractors: ['Different', 'Opposite', 'Similar'] },
+  { word: 'おんな', meaning: 'Woman', distractors: ['Man', 'Child', 'Elderly'] },
+  { word: 'かいしゃ', meaning: 'Company', distractors: ['School', 'Hospital', 'Factory'] },
+  { word: 'がっこう', meaning: 'School', distractors: ['University', 'Office', 'Library'] },
+  { word: 'きく', meaning: 'To listen', distractors: ['To talk', 'To sing', 'To read'] },
+  { word: 'きょう', meaning: 'Today', distractors: ['Tomorrow', 'Yesterday', 'Tonight'] },
+  { word: 'くる', meaning: 'To come', distractors: ['To go', 'To leave', 'To arrive'] },
+  { word: 'けっこん', meaning: 'Marriage', distractors: ['Engagement', 'Divorce', 'Friendship'] },
+  { word: 'ことば', meaning: 'Word', distractors: ['Letter', 'Phrase', 'Sentence'] },
+  { word: 'さくら', meaning: 'Cherry blossom', distractors: ['Maple', 'Rose', 'Lotus'] },
+  { word: 'しごと', meaning: 'Job', distractors: ['Hobby', 'School', 'Vacation'] },
+  { word: 'じかん', meaning: 'Time', distractors: ['Clock', 'Moment', 'Period'] },
+  { word: 'せんせい', meaning: 'Teacher', distractors: ['Doctor', 'Engineer', 'Student'] },
+  { word: 'たべる', meaning: 'To eat', distractors: ['To drink', 'To cook', 'To chew'] },
+  { word: 'ともだち', meaning: 'Friend', distractors: ['Enemy', 'Teacher', 'Colleague'] },
+  { word: 'にほん', meaning: 'Japan', distractors: ['China', 'Korea', 'Vietnam'] },
+  { word: 'のみもの', meaning: 'Drink', distractors: ['Food', 'Dessert', 'Soup'] },
+  { word: 'はな', meaning: 'Flower', distractors: ['Tree', 'Grass', 'Leaf'] },
+  { word: 'ひる', meaning: 'Noon', distractors: ['Morning', 'Evening', 'Night'] },
+  { word: 'ほん', meaning: 'Book', distractors: ['Notebook', 'Paper', 'Letter'] },
+  { word: 'まいにち', meaning: 'Every day', distractors: ['Once a week', 'Monthly', 'Yearly'] },
+  { word: 'みず', meaning: 'Water', distractors: ['Juice', 'Milk', 'Soda'] },
+  { word: 'みせ', meaning: 'Store', distractors: ['House', 'School', 'Office'] },
+  { word: 'やま', meaning: 'Mountain', distractors: ['Hill', 'Valley', 'River'] },
+  { word: 'りょこう', meaning: 'Travel', distractors: ['Work', 'Study', 'Rest'] },
+  { word: 'れんしゅう', meaning: 'Practice', distractors: ['Test', 'Competition', 'Performance'] }
 ];
 
 export const katakanaMeanings = [
-  {
-    word: 'カタカナ',
-    meaning: 'Katakana',
-    distractors: ['Hiragana', 'Kanji', 'Romaji']
-  },
-  {
-    word: 'コーヒー',
-    meaning: 'Coffee',
-    distractors: ['Tea', 'Juice', 'Water']
-  },
-  {
-    word: 'パソコン',
-    meaning: 'Personal Computer',
-    distractors: ['Smartphone', 'Tablet', 'Television']
-  },
-  {
-    word: 'テレビ',
-    meaning: 'Television',
-    distractors: ['Radio', 'Computer', 'Phone']
-  },
-  {
-    word: 'スマホ',
-    meaning: 'Smartphone',
-    distractors: ['Computer', 'Tablet', 'Watch']
-  },
-  {
-    word: 'インターネット',
-    meaning: 'Internet',
-    distractors: ['Television', 'Radio', 'Newspaper']
-  },
-  {
-    word: 'カメラ',
-    meaning: 'Camera',
-    distractors: ['Phone', 'Computer', 'Video']
-  },
-  {
-    word: 'タクシー',
-    meaning: 'Taxi',
-    distractors: ['Bus', 'Train', 'Car']
-  },
-  {
-    word: 'ホテル',
-    meaning: 'Hotel',
-    distractors: ['House', 'Restaurant', 'Store']
-  },
-  {
-    word: 'レストラン',
-    meaning: 'Restaurant',
-    distractors: ['Cafe', 'Hotel', 'Store']
-  },
-  {
-    word: 'アイスクリーム',
-    meaning: 'Ice cream',
-    distractors: ['Cake', 'Chocolate', 'Cookie']
-  },
-  {
-    word: 'ビール',
-    meaning: 'Beer',
-    distractors: ['Wine', 'Water', 'Juice']
-  },
-  {
-    word: 'メニュー',
-    meaning: 'Menu',
-    distractors: ['Book', 'Magazine', 'Newspaper']
-  },
-  {
-    word: 'ギター',
-    meaning: 'Guitar',
-    distractors: ['Piano', 'Violin', 'Drums']
-  },
-  {
-    word: 'ピアノ',
-    meaning: 'Piano',
-    distractors: ['Guitar', 'Violin', 'Flute']
-  }
+  { word: 'アイス', meaning: 'Ice', distractors: ['Water', 'Snow', 'Cold'] },
+  { word: 'アメリカ', meaning: 'America', distractors: ['Canada', 'England', 'Australia'] },
+  { word: 'インターネット', meaning: 'Internet', distractors: ['Computer', 'Phone', 'Network'] },
+  { word: 'エレベーター', meaning: 'Elevator', distractors: ['Stairs', 'Escalator', 'Ramp'] },
+  { word: 'オレンジ', meaning: 'Orange', distractors: ['Apple', 'Banana', 'Grapes'] },
+  { word: 'カメラ', meaning: 'Camera', distractors: ['Phone', 'Laptop', 'TV'] },
+  { word: 'カレー', meaning: 'Curry', distractors: ['Soup', 'Rice', 'Bread'] },
+  { word: 'ギター', meaning: 'Guitar', distractors: ['Violin', 'Drum', 'Piano'] },
+  { word: 'クラス', meaning: 'Class', distractors: ['Teacher', 'Lesson', 'School'] },
+  { word: 'コンビニ', meaning: 'Convenience store', distractors: ['Supermarket', 'Mall', 'Pharmacy'] },
+  { word: 'サッカー', meaning: 'Soccer', distractors: ['Baseball', 'Tennis', 'Basketball'] },
+  { word: 'シャツ', meaning: 'Shirt', distractors: ['Pants', 'Jacket', 'Shoes'] },
+  { word: 'ジュース', meaning: 'Juice', distractors: ['Water', 'Milk', 'Soda'] },
+  { word: 'スカート', meaning: 'Skirt', distractors: ['Dress', 'Pants', 'Blouse'] },
+  { word: 'スマホ', meaning: 'Smartphone', distractors: ['Laptop', 'Tablet', 'TV'] },
+  { word: 'スポーツ', meaning: 'Sports', distractors: ['Exercise', 'Game', 'Hobby'] },
+  { word: 'タクシー', meaning: 'Taxi', distractors: ['Bus', 'Train', 'Car'] },
+  { word: 'テーブル', meaning: 'Table', distractors: ['Chair', 'Desk', 'Cabinet'] },
+  { word: 'テレビ', meaning: 'Television', distractors: ['Radio', 'Computer', 'Phone'] },
+  { word: 'ドア', meaning: 'Door', distractors: ['Window', 'Wall', 'Ceiling'] },
+  { word: 'ハンバーガー', meaning: 'Hamburger', distractors: ['Pizza', 'Sandwich', 'Hotdog'] },
+  { word: 'バス', meaning: 'Bus', distractors: ['Train', 'Taxi', 'Bicycle'] },
+  { word: 'パン', meaning: 'Bread', distractors: ['Rice', 'Noodles', 'Cake'] },
+  { word: 'ビール', meaning: 'Beer', distractors: ['Wine', 'Juice', 'Tea'] },
+  { word: 'ホテル', meaning: 'Hotel', distractors: ['Hostel', 'Apartment', 'House'] },
+  { word: 'マクドナルド', meaning: 'McDonalds', distractors: ['KFC', 'Subway', 'Burger King'] },
+  { word: 'メニュー', meaning: 'Menu', distractors: ['Bill', 'Order', 'Recipe'] },
+  { word: 'レストラン', meaning: 'Restaurant', distractors: ['Cafe', 'Bar', 'Fast food'] },
+  { word: 'ワイン', meaning: 'Wine', distractors: ['Beer', 'Whiskey', 'Juice'] }
 ];
 
 export const kanjiWordMeanings = [
-  {
-    word: '日本',
-    meaning: 'Japan',
-    distractors: ['China', 'Korea', 'Taiwan']
-  },
-  {
-    word: '学校',
-    meaning: 'School',
-    distractors: ['Library', 'Hospital', 'Office']
-  },
-  {
-    word: '電車',
-    meaning: 'Train',
-    distractors: ['Car', 'Bus', 'Bicycle']
-  },
-  {
-    word: '水曜日',
-    meaning: 'Wednesday',
-    distractors: ['Monday', 'Friday', 'Sunday']
-  },
-  {
-    word: '図書館',
-    meaning: 'Library',
-    distractors: ['School', 'Hospital', 'Museum']
-  },
-  {
-    word: '大学',
-    meaning: 'University',
-    distractors: ['High School', 'Elementary School', 'College']
-  },
-  {
-    word: '病院',
-    meaning: 'Hospital',
-    distractors: ['School', 'Library', 'Police Station']
-  },
-  {
-    word: '新聞',
-    meaning: 'Newspaper',
-    distractors: ['Magazine', 'Book', 'Letter']
-  },
-  {
-    word: '映画',
-    meaning: 'Movie',
-    distractors: ['Television', 'Theater', 'Concert']
-  },
-  {
-    word: '駅前',
-    meaning: 'In front of station',
-    distractors: ['Behind station', 'Inside station', 'Near station']
-  },
-  {
-    word: '食堂',
-    meaning: 'Dining hall',
-    distractors: ['Restaurant', 'Cafe', 'Kitchen']
-  },
-  {
-    word: '公園',
-    meaning: 'Park',
-    distractors: ['Garden', 'Forest', 'Playground']
-  },
-  {
-    word: '銀行',
-    meaning: 'Bank',
-    distractors: ['Post Office', 'Office', 'Store']
-  },
-  {
-    word: '市場',
-    meaning: 'Market',
-    distractors: ['Store', 'Shop', 'Mall']
-  },
-  {
-    word: '道路',
-    meaning: 'Road',
-    distractors: ['Street', 'Highway', 'Path']
-  }
+  { word: '日本', meaning: 'Japan', distractors: ['China', 'Korea', 'Vietnam'] },
+  { word: '学生', meaning: 'Student', distractors: ['Teacher', 'Doctor', 'Engineer'] },
+  { word: '学校', meaning: 'School', distractors: ['Office', 'Library', 'Hospital'] },
+  { word: '先生', meaning: 'Teacher', distractors: ['Student', 'Manager', 'Writer'] },
+  { word: '友達', meaning: 'Friend', distractors: ['Enemy', 'Colleague', 'Neighbor'] },
+  { word: '時間', meaning: 'Time', distractors: ['Clock', 'Moment', 'Hour'] },
+  { word: '電車', meaning: 'Train', distractors: ['Car', 'Bus', 'Bicycle'] },
+  { word: '食事', meaning: 'Meal', distractors: ['Snack', 'Drink', 'Dessert'] },
+  { word: '飲物', meaning: 'Drink', distractors: ['Food', 'Soup', 'Juice'] },
+  { word: '映画', meaning: 'Movie', distractors: ['Book', 'Drama', 'Music'] },
+  { word: '病院', meaning: 'Hospital', distractors: ['School', 'Bank', 'Police Station'] },
+  { word: '天気', meaning: 'Weather', distractors: ['Temperature', 'Season', 'Climate'] },
+  { word: '旅行', meaning: 'Travel', distractors: ['Work', 'Study', 'Rest'] },
+  { word: '勉強', meaning: 'Study', distractors: ['Work', 'Exercise', 'Reading'] },
+  { word: '仕事', meaning: 'Job', distractors: ['Hobby', 'Vacation', 'School'] }
 ];
 
 export const kanjiCharacterMeanings = [
-  {
-    kanji: '日',
-    meaning: 'Sun, Day',
-    distractors: ['Moon, Month', 'Fire', 'Water']
-  },
-  {
-    kanji: '月',
-    meaning: 'Moon, Month',
-    distractors: ['Sun, Day', 'Star', 'Planet']
-  },
-  {
-    kanji: '火',
-    meaning: 'Fire',
-    distractors: ['Water', 'Earth', 'Wind']
-  },
-  {
-    kanji: '水',
-    meaning: 'Water',
-    distractors: ['Fire', 'Earth', 'Air']
-  },
-  {
-    kanji: '木',
-    meaning: 'Tree, Wood',
-    distractors: ['Stone', 'Metal', 'Earth']
-  },
-  {
-    kanji: '金',
-    meaning: 'Gold, Money',
-    distractors: ['Silver', 'Bronze', 'Iron']
-  },
-  {
-    kanji: '土',
-    meaning: 'Earth, Soil',
-    distractors: ['Water', 'Air', 'Fire']
-  },
-  {
-    kanji: '人',
-    meaning: 'Person',
-    distractors: ['Animal', 'Plant', 'Object']
-  },
-  {
-    kanji: '山',
-    meaning: 'Mountain',
-    distractors: ['River', 'Ocean', 'Valley']
-  },
-  {
-    kanji: '川',
-    meaning: 'River',
-    distractors: ['Ocean', 'Lake', 'Stream']
-  },
-  {
-    kanji: '田',
-    meaning: 'Rice field',
-    distractors: ['Farm', 'Garden', 'Field']
-  },
-  {
-    kanji: '目',
-    meaning: 'Eye',
-    distractors: ['Nose', 'Mouth', 'Ear']
-  },
-  {
-    kanji: '口',
-    meaning: 'Mouth',
-    distractors: ['Eye', 'Nose', 'Ear']
-  },
-  {
-    kanji: '手',
-    meaning: 'Hand',
-    distractors: ['Foot', 'Arm', 'Leg']
-  },
-  {
-    kanji: '足',
-    meaning: 'Foot, Leg',
-    distractors: ['Hand', 'Arm', 'Head']
-  }
+  { word: '日', meaning: 'Sun / Day', distractors: ['Moon', 'Fire', 'Star'] },
+  { word: '月', meaning: 'Moon / Month', distractors: ['Sun', 'Star', 'Sky'] },
+  { word: '山', meaning: 'Mountain', distractors: ['River', 'Valley', 'Hill'] },
+  { word: '川', meaning: 'River', distractors: ['Lake', 'Sea', 'Pond'] },
+  { word: '田', meaning: 'Rice Field', distractors: ['Farm', 'Forest', 'Garden'] },
+  { word: '人', meaning: 'Person', distractors: ['Animal', 'God', 'Spirit'] },
+  { word: '男', meaning: 'Man', distractors: ['Woman', 'Child', 'Elder'] },
+  { word: '女', meaning: 'Woman', distractors: ['Man', 'Child', 'Elder'] },
+  { word: '子', meaning: 'Child', distractors: ['Parent', 'Student', 'Teacher'] },
+  { word: '上', meaning: 'Above / Up', distractors: ['Below', 'Inside', 'Outside'] },
+  { word: '下', meaning: 'Below / Down', distractors: ['Above', 'Left', 'Right'] },
+  { word: '左', meaning: 'Left', distractors: ['Right', 'Up', 'Down'] },
+  { word: '右', meaning: 'Right', distractors: ['Left', 'Up', 'Down'] },
+  { word: '中', meaning: 'Inside / Middle', distractors: ['Outside', 'Left', 'Right'] },
+  { word: '大', meaning: 'Big', distractors: ['Small', 'Tall', 'Short'] },
+  { word: '小', meaning: 'Small', distractors: ['Big', 'Short', 'Narrow'] },
+  { word: '本', meaning: 'Book / Origin', distractors: ['Letter', 'Paper', 'Story'] },
+  { word: '学', meaning: 'Study / Learning', distractors: ['Teach', 'Read', 'Work'] },
+  { word: '校', meaning: 'School', distractors: ['Class', 'Office', 'Library'] },
+  { word: '先', meaning: 'Before / Ahead', distractors: ['After', 'Behind', 'Slow'] },
+  { word: '生', meaning: 'Life / Birth', distractors: ['Death', 'Illness', 'Old'] },
+  { word: '年', meaning: 'Year', distractors: ['Month', 'Day', 'Week'] },
+  { word: '時', meaning: 'Time', distractors: ['Clock', 'Moment', 'Hour'] },
+  { word: '水', meaning: 'Water', distractors: ['Juice', 'Milk', 'Oil'] },
+  { word: '火', meaning: 'Fire', distractors: ['Water', 'Smoke', 'Light'] },
+  { word: '木', meaning: 'Tree', distractors: ['Grass', 'Flower', 'Leaf'] },
+  { word: '金', meaning: 'Gold / Money', distractors: ['Silver', 'Bronze', 'Copper'] },
+  { word: '土', meaning: 'Earth / Soil', distractors: ['Stone', 'Rock', 'Clay'] },
+  { word: '車', meaning: 'Car / Vehicle', distractors: ['Train', 'Bus', 'Bike'] },
+  { word: '電', meaning: 'Electricity', distractors: ['Fire', 'Light', 'Heat'] },
+  { word: '手', meaning: 'Hand', distractors: ['Foot', 'Arm', 'Leg'] },
+  { word: '足', meaning: 'Foot, Leg', distractors: ['Hand', 'Arm', 'Head'] },
+  { word: '目', meaning: 'Eye', distractors: ['Nose', 'Mouth', 'Ear'] }
 ];
