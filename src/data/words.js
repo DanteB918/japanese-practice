@@ -21,3 +21,36 @@ export const kanjiWords = [
   { word: '水曜日', romaji: ['sui', 'you', 'bi'], meaning: 'Wednesday' },
   { word: '図書館', romaji: ['to', 'sho', 'kan'], meaning: 'Library' },
 ];
+
+export const kanjiCharacters = [
+  {
+    kanji: '日',
+    meaning: 'Sun, Day',
+    onyomi: ['nichi', 'jitsu'],
+    kunyomi: ['hi', 'ka'],
+  },
+  {
+    kanji: '月',
+    meaning: 'Moon, Month',
+    onyomi: ['getsu', 'gatsu'],
+    kunyomi: ['tsuki'],
+  },
+  {
+    kanji: '火',
+    meaning: 'Fire',
+    onyomi: ['ka'],
+    kunyomi: ['hi'],
+  },
+  {
+    kanji: '水',
+    meaning: 'Water',
+    onyomi: ['sui'],
+    kunyomi: ['mizu'],
+  },
+  {
+    kanji: '木',
+    meaning: 'Tree, Wood',
+    onyomi: ['moku', 'boku'],
+    kunyomi: ['ki'],
+  },
+];

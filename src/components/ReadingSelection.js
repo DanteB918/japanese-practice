@@ -12,8 +12,11 @@ function ReadingSelection() {
         <Link to="/reading-practice/katakana" className="selection-button">
           Katakana Practice
         </Link>
-        <Link to="/reading-practice/kanji" className="selection-button">
-          Kanji Practice
+        <Link to="/reading-practice/kanji-words" className="selection-button">
+          Kanji Words Practice
+        </Link>
+        <Link to="/reading-practice/kanji-chars" className="selection-button">
+          Kanji Characters Practice
         </Link>
       </div>
     </div>

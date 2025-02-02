@@ -14,10 +14,23 @@ function ReadingPractice() {
         return hiraganaWords;
       case 'katakana':
         return katakanaWords;
-      case 'kanji':
+      case 'kanji-words':
         return kanjiWords;
       default:
         return hiraganaWords;
+    }
+  };
+
+  const getSystemTitle = () => {
+    switch (system) {
+      case 'hiragana':
+        return 'Hiragana';
+      case 'katakana':
+        return 'Katakana';
+      case 'kanji-words':
+        return 'Kanji Words';
+      default:
+        return 'Reading';
     }
   };
 
@@ -79,11 +92,11 @@ function ReadingPractice() {
     <div className="reading-practice">
       <div className="container">
         <div className="header">
-          <h1>{system === 'hiragana' ? 'Hiragana' : system === 'katakana' ? 'Katakana' : 'Kanji'} Practice</h1>
+          <h1>{getSystemTitle()} Practice</h1>
         </div>
         <div className="word-display">
           <h2>{currentWord.word}</h2>
-          {system === 'kanji' && currentWord.meaning && (
+          {system === 'kanji-words' && currentWord.meaning && (
             <p className="word-meaning">Meaning: {currentWord.meaning}</p>
           )}
         </div>
