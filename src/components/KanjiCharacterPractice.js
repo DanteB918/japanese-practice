@@ -91,6 +91,7 @@ function KanjiCharacterPractice() {
                 <input
                   key={`onyomi-${index}`}
                   type="text"
+                  maxLength={currentKanji.onyomi[index].length}
                   value={onyomiInput[index]}
                   onChange={(e) => handleInputChange('onyomi', index, e.target.value)}
                   className={
