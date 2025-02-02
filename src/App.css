@@ -21,6 +21,19 @@ h1 {
 
 .word-display {
   margin-bottom: 2rem;
+  text-align: center;
+}
+
+.word-display h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.word-meaning {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-style: italic;
 }
 
 h2 {

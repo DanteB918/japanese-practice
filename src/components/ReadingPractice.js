@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { hiraganaWords, katakanaWords } from '../data/words';
+import { hiraganaWords, katakanaWords, kanjiWords } from '../data/words';
 
 function ReadingPractice() {
   const { system } = useParams();
@@ -8,7 +8,20 @@ function ReadingPractice() {
   const [userInput, setUserInput] = useState([]);
   const [isCorrect, setIsCorrect] = useState(null);
 
-  const wordList = system === 'hiragana' ? hiraganaWords : katakanaWords;
+  const getWordList = () => {
+    switch (system) {
+      case 'hiragana':
+        return hiraganaWords;
+      case 'katakana':
+        return katakanaWords;
+      case 'kanji':
+        return kanjiWords;
+      default:
+        return hiraganaWords;
+    }
+  };
+
+  const wordList = getWordList();
 
   useEffect(() => {
     getNewWord();
@@ -66,11 +79,13 @@ function ReadingPractice() {
     <div className="reading-practice">
       <div className="container">
         <div className="header">
-          {/* <Link to="/reading-practice" className="back-button">← Back to Selection</Link> */}
-          <h1>{system === 'hiragana' ? 'Hiragana' : 'Katakana'} Practice</h1>
+          <h1>{system === 'hiragana' ? 'Hiragana' : system === 'katakana' ? 'Katakana' : 'Kanji'} Practice</h1>
         </div>
         <div className="word-display">
           <h2>{currentWord.word}</h2>
+          {system === 'kanji' && currentWord.meaning && (
+            <p className="word-meaning">Meaning: {currentWord.meaning}</p>
+          )}
         </div>
         <div className="input-container">
           {currentWord.romaji.map((char, index) => (
