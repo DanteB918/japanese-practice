@@ -4,7 +4,7 @@ import { hiraganaMeanings, katakanaMeanings, kanjiWordMeanings, kanjiCharacterMe
 
 function MeaningPractice() {
   const { system } = useParams();
-  
+
   const getMeaningList = () => {
     switch (system) {
       case 'hiragana':
@@ -41,6 +41,9 @@ function MeaningPractice() {
   const [isCorrect, setIsCorrect] = useState(null);
   const [showingAnswers, setShowingAnswers] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [totalAttempts, setTotalAttempts] = useState(0);
+  const [streak, setStreak] = useState(0);
 
   const getSystemTitle = () => {
     switch (system) {
@@ -70,6 +73,10 @@ function MeaningPractice() {
     setIsCorrect(null);
     setShowingAnswers(false);
     setSelectedOption(null);
+    // Reset scores when changing systems
+    setCorrectCount(0);
+    setTotalAttempts(0);
+    setStreak(0);
   }, [system]);
 
   const handleOptionClick = (selectedOption) => {
@@ -79,6 +86,14 @@ function MeaningPractice() {
     const correct = selectedOption === currentItem.meaning;
     setIsCorrect(correct);
     setShowingAnswers(true);
+    setTotalAttempts(prev => prev + 1);
+    
+    if (correct) {
+      setCorrectCount(prev => prev + 1);
+      setStreak(prev => prev + 1);
+    } else {
+      setStreak(0);
+    }
 
     setTimeout(() => {
       const meaningList = getMeaningList();
@@ -93,7 +108,9 @@ function MeaningPractice() {
 
   const getNewWord = () => {
     setShowingAnswers(true);
-    setSelectedOption(currentItem.meaning); // Show the correct answer when skipping
+    setSelectedOption(currentItem.meaning);
+    setTotalAttempts(prev => prev + 1);
+    setStreak(0);
     
     setTimeout(() => {
       const meaningList = getMeaningList();
@@ -108,12 +125,9 @@ function MeaningPractice() {
 
   const getButtonClass = (option) => {
     if (!showingAnswers) return '';
-    
-    // Always show the correct answer in green
     if (option === currentItem.meaning) {
       return 'correct';
     }
-    // Show the wrong selected option in red
     if (option === selectedOption && !isCorrect) {
       return 'incorrect';
     }
@@ -125,6 +139,9 @@ function MeaningPractice() {
       <div className="container">
         <div className="header">
           <h1>{getSystemTitle()} Meaning Practice</h1>
+          <div className="score">
+            Score: {correctCount}/{totalAttempts} {streak >= 5 && '🔥'}
+          </div>
         </div>
         <div className="word-display">
           <h2>{system === 'kanji-chars' ? currentItem.kanji : currentItem.word}</h2>
