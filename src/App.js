@@ -15,6 +15,8 @@ function Home() {
         <Link to="/reading-practice" className="practice-button">
           Reading Practice
         </Link>
+        <br />
+        <br />
         <Link to="/meaning-practice" className="practice-button">
           Meaning Practice
         </Link>
