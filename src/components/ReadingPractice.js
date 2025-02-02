@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
 
 // Sample Japanese words (we can expand this list later)
 const japaneseWords = [
@@ -68,7 +66,7 @@ function ReadingPractice() {
   if (!currentWord) return <div>Loading...</div>;
 
   return (
-    <div className="App">
+    <div className="reading-practice">
       <div className="container">
         <h1>Japanese Word Practice</h1>
         <div className="word-display">
@@ -94,11 +92,7 @@ function ReadingPractice() {
         </div>
         {isCorrect !== null && (
           <div className="feedback">
-            {isCorrect ? (
-              <p className="correct-message">Correct! 🎉</p>
-            ) : (
-              <p className="incorrect-message">Try again!</p>
-            )}
+            {isCorrect ? 'Correct!' : 'Try again!'}
           </div>
         )}
         <button onClick={getNewWord}>New Word</button>
@@ -107,30 +101,4 @@ function ReadingPractice() {
   );
 }
 
-function Home() {
-  return (
-    <div className="home">
-      <h1>Japanese Learning Practice</h1>
-      <div className="practice-options">
-        <Link to="/reading-practice" className="practice-button">
-          Reading Practice
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/reading-practice" element={<ReadingPractice />} />
-        </Routes>
-      </div>
-    </Router>
-  );
-}
-
-export default App;
+export default ReadingPractice;
