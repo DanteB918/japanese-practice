@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/japanese-practice/static/css/main.6511cb20.css",
+    "main.js": "/japanese-practice/static/js/main.553f60a0.js",
+    "index.html": "/japanese-practice/index.html",
+    "main.6511cb20.css.map": "/japanese-practice/static/css/main.6511cb20.css.map",
+    "main.553f60a0.js.map": "/japanese-practice/static/js/main.553f60a0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6511cb20.css",
+    "static/js/main.553f60a0.js"
+  ]
+}
