@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/japanese-practice/static/css/main.6511cb20.css",
-    "main.js": "/japanese-practice/static/js/main.95b45f5a.js",
+    "main.js": "/japanese-practice/static/js/main.b643bed8.js",
     "index.html": "/japanese-practice/index.html",
     "main.6511cb20.css.map": "/japanese-practice/static/css/main.6511cb20.css.map",
-    "main.95b45f5a.js.map": "/japanese-practice/static/js/main.95b45f5a.js.map"
+    "main.b643bed8.js.map": "/japanese-practice/static/js/main.b643bed8.js.map"
   },
   "entrypoints": [
     "static/css/main.6511cb20.css",
-    "static/js/main.95b45f5a.js"
+    "static/js/main.b643bed8.js"
   ]
 }
